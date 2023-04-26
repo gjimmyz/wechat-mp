@@ -1,1 +1,1 @@
-./images/WechatIMG3529.jpeg
+/images/WechatIMG3529.jpeg
