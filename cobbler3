@@ -1,0 +1,46 @@
+1、cobbler3.2.2部署系统(支持uefi)
+https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484392&idx=1&sn=2011b257f6c8ef3900fd8fe9688c7e1c&chksm=c24ecac7f53943d1b43946d5eb8d549ca14d62dd8ce82f26a14aef5445879d8f823c0aeba83c&token=1205473399&lang=zh_CN#rd
+
+2、
+
+3）文章里少了启动服务
+systemctl start tftp
+
+4) 记得关闭firewalld服务
+systemctl stop firewalld
+systemctl disable firewalld
+firewall-cmd --list-all
+
+Output：
+FirewallD is not running
+
+5)
+cat centos79.ks
+auth  --useshadow  --enablemd5
+bootloader --location=mbr
+clearpart --all --initlabel
+text
+firewall --disabled
+firstboot --disable
+keyboard us
+lang en_US
+url --url=$tree
+$yum_repo_stanza
+$SNIPPET('network_config')
+reboot
+rootpw --iscrypted $default_password_crypted
+selinux --disabled
+skipx
+timezone  Asia/shanghai
+install
+zerombr
+part biosboot --size 1 --fstype=biosboot
+part /boot --fstype=ext4 --size=1000
+part /boot/efi --fstype=efi --size=1000
+part / --fstype=ext4 --grow --size=1
+
+2、
+
+3、
+
+4、
