@@ -37,3 +37,6 @@ part biosboot --size 1 --fstype=biosboot
 part /boot --fstype=ext4 --size=1000
 part /boot/efi --fstype=efi --size=1000
 part / --fstype=ext4 --grow --size=1
+
+5、如果是虚拟机的，基本上就可以了
+如果当中有交换机的，需要交换机relay到cobbler server（dhcp server）也在这个上，也就是交换机中继到这个机器
