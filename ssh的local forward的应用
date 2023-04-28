@@ -1,0 +1,21 @@
+ssh的local forward的应用
+https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484448&idx=1&sn=0dcfb8783dc2c30b9ba4152f863dfc33&chksm=c24ecd0ff53944196e56e581a3196e869e8d08404a684fd909b40945c85958fd4be763ad3f01&token=14704740&lang=zh_CN#rd
+
+文章里写了http访问，如果是ssh访问的话
+
+1）如果是key登录就是这样，可以放后台
+nohup ssh -L 2121:192.xxx.xxx.149:22 root@10.xxx.xxx.11 -p22222 -N &
+
+2）如果密码登录，那么需要放前台，因为需要输入密码
+ssh -L 2121:192.xxx.xxx.149:22 root@10.xxx.xxx.11 -p22222 -N
+
+3）再开一个终端连接
+ssh -p2121 username@localhost
+
+username就是登录的用户
+
+4）说明
+-L 2121:192.xxx.xxx.149:22：指定要建立的本地端口和要转发到的远程主机及端口。
+root@10.xxx.xxx.11：指定用于连接到远程主机的用户名和地址。
+-p 22222：指定用于连接到远程主机的端口号。
+-N：告诉ssh不要执行任何远程命令，只需建立隧道就行。
