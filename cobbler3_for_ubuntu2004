@@ -50,7 +50,7 @@ autoinstall:
   updates: security
   version: 1
 
-  3、高级版，自动识别是/dev/sdx还是/dev/nmve
+3、高级版，自动识别是/dev/sdx还是/dev/nmve
 #cloud-config
 autoinstall:
   apt:
