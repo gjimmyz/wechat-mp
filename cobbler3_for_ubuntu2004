@@ -100,7 +100,7 @@ autoinstall:
   updates: security
   version: 1
 
-  4、高级版二，支持逻辑卷格式化分区
+4、高级版二，支持逻辑卷格式化分区
 #cloud-config
 autoinstall:
   apt:
