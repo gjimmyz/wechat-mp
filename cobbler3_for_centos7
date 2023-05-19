@@ -27,6 +27,7 @@ lang en_US
 url --url=$tree
 $yum_repo_stanza
 $SNIPPET('network_config')
+user --name=user --password=$1$9olglJoq$2wY3PcxYs93N3HW5kd0Ij. --iscrypted --gecos="User"
 reboot
 rootpw --iscrypted $default_password_crypted
 selinux --disabled
@@ -38,6 +39,13 @@ part biosboot --size 1 --fstype=biosboot
 part /boot --fstype=ext4 --size=1000
 part /boot/efi --fstype=efi --size=1000
 part / --fstype=ext4 --grow --size=1
+%post
+echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/user
+chmod 0440 /etc/sudoers.d/user
+%end
 
 5、如果是虚拟机的，基本上就可以了
 如果当中有交换机的，需要交换机relay到cobbler server（dhcp server）也在这个上，也就是交换机中继到这个机器
+
+6、使用openssl passwd -1获取--password的加密信息
+user --name=ansible_user --password=$1$9olglJoq$2wY3PcxYs93N3HW5kd0Ij. --iscrypted --gecos="Ansible User"
