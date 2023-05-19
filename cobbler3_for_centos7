@@ -14,7 +14,8 @@ Output：
 FirewallD is not running
 
 4、centos7模版
-cat centos79.ks
+cat /var/lib/cobbler/templates/centos79.ks
+
 auth  --useshadow  --enablemd5
 bootloader --location=mbr
 clearpart --all --initlabel
