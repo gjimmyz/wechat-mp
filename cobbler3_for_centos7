@@ -48,4 +48,4 @@ chmod 0440 /etc/sudoers.d/user
 如果当中有交换机的，需要交换机relay到cobbler server（dhcp server）也在这个上，也就是交换机中继到这个机器
 
 6、使用openssl passwd -1获取--password的加密信息
-user --name=ansible_user --password=$1$9olglJoq$2wY3PcxYs93N3HW5kd0Ij. --iscrypted --gecos="Ansible User"
+user --name=ansible_user --password=$1$9olglJoq$2wY3PcxYs93N3HW5kd0Ij. --iscrypted --gecos="User"
