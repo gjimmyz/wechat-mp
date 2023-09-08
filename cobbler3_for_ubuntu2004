@@ -150,5 +150,9 @@ autoinstall:
       - {fstype: ext4, volume: lv_root, preserve: false, type: format, id: format-1}
       - {device: format-1, path: /, type: mount, id: mount-1}
       - {device: format-0, path: /boot/efi, type: mount, id: mount-0}
+  late-commands:
+  - curtin in-target --target=/target -- wget -P /root/ http://192.168.109.149/2.sh
+  - curtin in-target --target=/target -- chmod +x /root/2.sh
+  - curtin in-target --target=/target -- bash /root/2.sh
   updates: security
   version: 1
