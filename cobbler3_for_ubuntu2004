@@ -1,4 +1,4 @@
-1、cobbler3.2.2部署ubuntu20.04.04系统(支持uefi)
+1、cobbler3.2.2部署ubuntu20.04.04系统(uefi情况下，支持dell_730xd,NUC11ATKC4,lenovo_x3550)
 https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484403&idx=1&sn=6bd41a8862232b038802f8b345de8b44&chksm=c24ecadcf53943ca833aaaca2fef2d8abe07462684
 ae18c200775a294bc58badbeaa98a4083f&token=1205473399&lang=zh_CN#rd
 
@@ -150,9 +150,5 @@ autoinstall:
       - {fstype: ext4, volume: lv_root, preserve: false, type: format, id: format-1}
       - {device: format-1, path: /, type: mount, id: mount-1}
       - {device: format-0, path: /boot/efi, type: mount, id: mount-0}
-  late-commands:
-  - curtin in-target --target=/target -- wget -P /root/ http://192.168.109.149/2.sh
-  - curtin in-target --target=/target -- chmod +x /root/2.sh
-  - curtin in-target --target=/target -- bash /root/2.sh
   updates: security
   version: 1
