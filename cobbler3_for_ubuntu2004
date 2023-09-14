@@ -2,7 +2,10 @@
 https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484403&idx=1&sn=6bd41a8862232b038802f8b345de8b44&chksm=c24ecadcf53943ca833aaaca2fef2d8abe07462684
 ae18c200775a294bc58badbeaa98a4083f&token=1205473399&lang=zh_CN#rd
 
-2、相关模版
+2、Dell PowerEdge R730xd不支持的SFP+模块
+上述机器 需要插1根光口，1根电口，才能安装
+
+3、相关模版
 #cloud-config
 autoinstall:
   apt:
