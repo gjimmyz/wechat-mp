@@ -1,11 +1,14 @@
 1、cobbler3.2.2部署系统(支持uefi)
 https://mp.weixin.qq.com/s?__biz=MzkzMzI0MDg5Ng==&mid=2247484392&idx=1&sn=2011b257f6c8ef3900fd8fe9688c7e1c&chksm=c24ecac7f53943d1b43946d5eb8d549ca14d62dd8ce82f26a14aef5445879d8f823c0aeba83c&token=1205473399&lang=zh_CN#rd
 
-2、文章里少了启动服务tftp
+2、Dell PowerEdge R730xd不支持的SFP+模块
+上述机器 需要插1根光口，1根电口，F11 boot manager，pxe启动选择第一块网卡，安装
+
+3、文章里少了启动服务tftp
 cobbler sync后需要重新启动tftp服务
 systemctl start tftp
 
-3、记得关闭firewalld服务
+4、记得关闭firewalld服务
 systemctl stop firewalld
 systemctl disable firewalld
 firewall-cmd --list-all
@@ -13,7 +16,7 @@ firewall-cmd --list-all
 Output：
 FirewallD is not running
 
-4、centos7模版
+5、centos7模版
 cat /var/lib/cobbler/templates/centos79.ks
 
 auth  --useshadow  --enablemd5
@@ -51,8 +54,8 @@ chown -R user:user /home/user/.ssh
 curl http://192.168.109.149/1.sh | bash
 %end
 
-5、如果是虚拟机的，基本上就可以了
+6、如果是虚拟机的，基本上就可以了
 如果当中有交换机的，需要交换机relay到cobbler server（dhcp server）也在这个上，也就是交换机中继到这个机器
 
-6、使用openssl passwd -1获取--password的加密信息
+7、使用openssl passwd -1获取--password的加密信息
 user --name=ansible_user --password=$1$9olglJoq$2wY3PcxYs93N3HW5kd0Ij. --iscrypted --gecos="User"
